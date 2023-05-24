@@ -19,12 +19,13 @@ describe('My Second Test Suite', function() {
     cy.get('body > app-root > form-comp > div > form > div:nth-child(1) > input').should('have.attr', 'minlength', '2')
     cy.get('#inlineRadio3').should('be.disabled')
     cy.get(':nth-child(2) > .nav-link').click()
-    cy.get('h4.card-title').each(($el, index, $list) => {
-      if ($el.text().includes('Blackberry')) {
-        cy.get('button.btn.btn-info').eq(index).click()
-      }
-    }
-    )
+    cy.debug()
+    this.data.productName.forEach(function(element) {
+      cy.selectProduct(element)
+    })
+
+
+
   })
 
 
